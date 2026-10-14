@@ -37,9 +37,10 @@ onyxia:
       authentication.mode: "openidconnect"
       oidc.issuer-uri: "https://auth.lab.$DOMAIN/auth/realms/datalab"
       oidc.clientID: "onyxia"
-      #oidc.audience: "onyxia"
-      #oidc.extra-query-params: "kc_idp_hint=google&foo=bar"
-      #springdoc.swagger-ui.oauth.clientId: onyxia
+      oidc.audience: "onyxia-api"
+      oidc.username-claim: "onyxia-username"
+      oidc.roles-claim: "onyxia-roles"
+      oidc.groups-claim: "groups"
     
     # The region configuration is available here: 
     # https://github.com/InseeFrLab/onyxia-api/blob/main/docs/region-configuration.md
@@ -54,11 +55,7 @@ onyxia:
           authenticationMode: "serviceAccount",
           expose: {
             domain: "lab.$DOMAIN"
-          },
-          #namespacePrefix:"user-",
-          #usernamePrefix:"oidc-",
-          #groupNamespacePrefix:"project-",
-          #groupPrefix:"oidc-",
+          }
         },
         # Documentation for the S3 configuration is available here:
         # https://github.com/InseeFrLab/onyxia-api/blob/main/docs/region-configuration.md#s3
@@ -70,16 +67,13 @@ onyxia:
                   profileName: "default",
                   roleARN: "",
                   roleSessionName: ""
-                },
-                oidcConfiguration: {
-                  clientID: "onyxia-minio"
                 }
             },
             bookmarks: [
                 {
-                  s3Uri: "s3://user-$1/",
+                  s3Uri: "s3://$1/",
                   title: "Personal Bucket",
-                  claimName: "preferred_username",
+                  claimName: "onyxia-username",
                 },
                 {
                   s3Uri: "s3://project-$1/",

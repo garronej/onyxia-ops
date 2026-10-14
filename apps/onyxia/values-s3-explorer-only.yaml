@@ -17,14 +17,14 @@ onyxia:
               },
               oidcConfiguration: {
                 issuerURI: "https://auth.lab.$DOMAIN/auth/realms/datalab",
-                clientID: "onyxia-minio"
+                clientID: "onyxia"
               }
           },
           bookmarks: [
               {
-                s3Uri: "s3://user-$1/",
+                s3Uri: "s3://$1/",
                 title: { fr: "Bucket Personnel", en: "Personal Bucket" },
-                claimName: "preferred_username"
+                claimName: "onyxia-username"
               }
           ]
         }
