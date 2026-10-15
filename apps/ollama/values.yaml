@@ -157,7 +157,7 @@ open-webui:
     - name: OAUTH_CLIENT_SECRET
       value: $OPENWEBUI_CLIENT_SECRET
     - name: OPENID_PROVIDER_URL
-      value: https://auth.lab.$DOMAIN/auth/realms/sspcloud/.well-known/openid-configuration
+      value: https://auth.lab.$DOMAIN/realms/sspcloud/.well-known/openid-configuration
     - name: OPENID_REDIRECT_URI
       value: https://llm.lab.$DOMAIN/oauth/oidc/callback
     - name: OAUTH_TOKEN_EXCHANGE_TRUSTED_CLIENT_IDS

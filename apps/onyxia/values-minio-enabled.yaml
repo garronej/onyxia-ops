@@ -35,7 +35,7 @@ onyxia:
     env:
       #security.cors.allowed_origins: "*"
       authentication.mode: "openidconnect"
-      oidc.issuer-uri: "https://auth.lab.$DOMAIN/auth/realms/datalab"
+      oidc.issuer-uri: "https://auth.lab.$DOMAIN/realms/datalab"
       oidc.clientID: "onyxia"
       oidc.audience: "onyxia-api"
       oidc.username-claim: "onyxia-username"
@@ -71,14 +71,9 @@ onyxia:
             },
             bookmarks: [
                 {
-                  s3Uri: "s3://$1/",
+                  s3Uri: "s3://user-$1/",
                   title: "Personal Bucket",
                   claimName: "onyxia-username",
-                },
-                {
-                  s3Uri: "s3://project-$1/",
-                  title: "Bucket for $1",
-                  claimName: "groups"
                 }
             ]
           }

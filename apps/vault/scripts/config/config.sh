@@ -20,7 +20,7 @@ vault auth enable jwt
 # Configuration d'un KV pour onyxia avec authentification jwt (attention a passer le fichier de policy)
 
 vault write auth/jwt/config \
-    oidc_discovery_url="https://auth.lab.sspcloud.fr/auth/realms/sspcloud" \
+    oidc_discovery_url="https://auth.lab.sspcloud.fr/realms/sspcloud" \
     default_role="onyxia-user"
 
 vault write auth/jwt/role/onyxia-user \

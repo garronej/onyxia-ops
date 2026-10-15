@@ -34,7 +34,7 @@ minio:
     MINIO_BROWSER_REDIRECT_URL: https://minio-console.lab.$DOMAIN
   oidc:
     enabled: true
-    configUrl: "https://auth.lab.$DOMAIN/auth/realms/datalab/.well-known/openid-configuration"
+    configUrl: "https://auth.lab.$DOMAIN/realms/datalab/.well-known/openid-configuration"
     clientId: "minio"
     claimName: "minio-policy"
     scopes: "openid,profile,email"
